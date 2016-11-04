@@ -17,7 +17,7 @@ class Computer
       end
 
       s.delete_if do |a|
-        state != how_close?(current_guess, a)
+        state != how_close?(a, current_guess)
       end
       current_guess = s.min
     end

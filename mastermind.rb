@@ -10,6 +10,7 @@ class Mastermind
 
   def attempt(g)
     raise OutOfTurnsError, "You are out of turns!" if turns == 0
+    raise GuessLengthException, "Guess must be of length 4!" if g.length != 4
     make_guess(g)
     return how_close?
   end
@@ -46,4 +47,7 @@ class Mastermind
 end
 
 class OutOfTurnsError < StandardError
+end
+
+class GuessLengthException < ArgumentError
 end
